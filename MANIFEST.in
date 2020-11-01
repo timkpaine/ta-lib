@@ -1,3 +1,5 @@
 graft cmake
 include CMakeLists.txt
 include pyproject.toml
+include LICENSE
+

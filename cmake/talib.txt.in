@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.7.2)
+
+project(ta-lib-download NONE)
+
+include(ExternalProject)
+ExternalProject_Add(ta-lib-src
+  SVN_REPOSITORY    https://svn.code.sf.net/p/ta-lib/code/tags/release-0-4-0/ta-lib/c
+  SOURCE_DIR        "${CMAKE_BINARY_DIR}/ta-lib-src"
+  BINARY_DIR        "${CMAKE_BINARY_DIR}/ta-lib-build"
+  CONFIGURE_COMMAND ""
+  BUILD_COMMAND     ""
+  INSTALL_COMMAND   ""
+  TEST_COMMAND      ""
+  CMAKE_ARGS        "-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}"
+)

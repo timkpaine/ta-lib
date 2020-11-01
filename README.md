@@ -5,3 +5,6 @@ By default, it will generate two assets:
 
     - ta_lib shared library
     - ta_regtest: regression tests
+
+## Python
+This library is also pip-installable, in case you want to use TA-lib but do not use conda.

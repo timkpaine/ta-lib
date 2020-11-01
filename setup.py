@@ -2,7 +2,7 @@ from skbuild import setup
 
 setup(
     name="libta_lib",
-    version="0.4.0.rc1",
+    version="0.4.0.rc2",
     description='TA-lib C++ builder',
     long_description="TA-lib C++ builder from source",
     long_description_content_type='text/markdown',

@@ -323,7 +323,7 @@ include_directories(${CMAKE_BINARY_DIR}/ta-lib-src/src/ta_func/)
 add_library(ta_lib SHARED ${TALIB_abstract_src} ${TALIB_common_src} ${TALIB_func_src})
 
 install(TARGETS ta_lib LIBRARY DESTINATION lib)
-install(FILES ${TALIB_install_headers} DESTINATION include)
+install(FILES ${TALIB_install_headers} DESTINATION include/ta-lib)
 
 if(BUILD_TESTS)
 	# tests

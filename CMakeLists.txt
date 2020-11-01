@@ -308,11 +308,11 @@ set(TALIB_test_src
 )
 
 set(TALIB_install_headers
-	ta-lib-src/include/ta_abstract.h
-	ta-lib-src/include/ta_common.h
-	ta-lib-src/include/ta_defs.h
-	ta-lib-src/include/ta_func.h
-	ta-lib-src/include/ta_libc.h
+	${CMAKE_BINARY_DIR}/ta-lib-src/include/ta_abstract.h
+	${CMAKE_BINARY_DIR}/ta-lib-src/include/ta_common.h
+	${CMAKE_BINARY_DIR}/ta-lib-src/include/ta_defs.h
+	${CMAKE_BINARY_DIR}/ta-lib-src/include/ta_func.h
+	${CMAKE_BINARY_DIR}/ta-lib-src/include/ta_libc.h
 )
 
 include_directories(${CMAKE_BINARY_DIR}/ta-lib-src/include/)
@@ -322,8 +322,8 @@ include_directories(${CMAKE_BINARY_DIR}/ta-lib-src/src/ta_abstract/frames)
 include_directories(${CMAKE_BINARY_DIR}/ta-lib-src/src/ta_func/)
 add_library(ta_lib SHARED ${TALIB_abstract_src} ${TALIB_common_src} ${TALIB_func_src})
 
-install(TARGETS ta_lib DESTINATION lib)
-install(FILES ta_lib DESTINATION include)
+install(TARGETS ta_lib LIBRARY DESTINATION lib)
+install(FILES ${TALIB_install_headers} DESTINATION include)
 
 if(BUILD_TESTS)
 	# tests

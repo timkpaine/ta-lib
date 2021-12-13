@@ -1,0 +1,55 @@
+name: Build Status
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    # run on sunday nights
+    - cron:  '0 0 * * 0'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: [3.9]
+        event-name: [push]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    # - name: Install System Dependencies (Windows)
+    #   run: |
+    #       set VCPKG_DEFAULT_TRIPLET=x64-windows
+    #       set VCPKG_PLATFORM_TOOLSET=v142
+    #       git clone https://github.com/Microsoft/vcpkg
+    #       cd vcpkg
+    #       .\bootstrap-vcpkg.bat
+    #       .\vcpkg.exe integrate install
+    #   if: ${{ matrix.os == 'windows-latest' }}
+
+    # - name: Install System Dependencies (Mac)
+    #   run: |
+    #     brew install clang-format
+    #   if: ${{ matrix.os == 'macos-latest' }}
+
+    # - name: Install System Dependencies (Linux)
+    #   run: |
+    #     wget https://boostorg.jfrog.io/artifactory/main/release/1.71.0/source/boost_1_71_0.tar.gz >/dev/null 2>&1
+    #     tar xfz boost_1_71_0.tar.gz
+    #     cd boost_1_71_0
+    #     ./bootstrap.sh
+    #     sudo ./b2 -j8 --with-system install
+    #   if: ${{ matrix.os == 'ubuntu-latest' }}
+
+    - name: Lint
+      run: |
+        make lint
+
+    - name: Build
+      run: |
+        make build

@@ -43,5 +43,9 @@ setup(
     ],
     zip_safe=False,
     packages=["libta_lib"],
+    install_requires=requires,
+    extras_require={
+        "dev": requires_dev,
+    },
     cmake_args=cmake_args,
 )

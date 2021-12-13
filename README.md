@@ -1,6 +1,6 @@
 # ta-lib
 [![Build Status](https://github.com/timkpaine/ta-lib/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/timkpaine/ta-lib/actions?query=workflow%3A%22Build+Status%22)
-[![License](https://img.shields.io/github/license/timkpaine/ta-lib.svg)](https://github.com/timkpaine/ta-lib/)
+[![License](https://img.shields.io/badge/License-BSD-3-green)](https://github.com/timkpaine/ta-lib/)
 
 This repo checks TA-lib out from SVN and builds it with cmake, for better cross-platform compatibility.
 
